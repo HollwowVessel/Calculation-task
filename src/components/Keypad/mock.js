@@ -21,6 +21,7 @@ const buttonValues = [
   '=',
   '+/-',
   '%',
+  'CL',
 ];
 
 export { buttonValues };

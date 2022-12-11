@@ -1,7 +1,5 @@
 import React from 'react';
 
-const AppRouter = () => {
+export const AppRouter = () => {
   return <div>AppRouter</div>;
 };
-
-export { AppRouter };

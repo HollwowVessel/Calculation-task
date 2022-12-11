@@ -5,11 +5,10 @@ class Calculator {
   }
 
   executeCommand(command) {
-    this.history.push([command.value, command.operation, this.value]);
+    const historyElement = [command.value, command.operation, this.value];
     this.value = command.execute(this.value);
+    this.history.push(...historyElement, ...['=', this.value]);
   }
 }
 
-const calc = new Calculator();
-
-export { calc };
+export const calc = new Calculator();
