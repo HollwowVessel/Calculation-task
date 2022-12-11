@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyledDisplay, StyledExpressionBuilder, StyledNumber } from './styled';
 
-export const Display = () => {
+export const Display = ({ number, expression }) => {
   return (
     <StyledDisplay>
-      <StyledExpressionBuilder>(0+1+2+3)</StyledExpressionBuilder>
-      <StyledNumber>12</StyledNumber>
+      <StyledNumber>{expression}</StyledNumber>
+      <StyledExpressionBuilder>{number}</StyledExpressionBuilder>
     </StyledDisplay>
   );
 };

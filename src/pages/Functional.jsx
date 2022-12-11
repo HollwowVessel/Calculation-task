@@ -1,7 +1,10 @@
 import React from 'react';
+import { Calculator } from 'components/Calculator';
 
-const Functional = () => {
-  return <div>Functional</div>;
+export const Functional = () => {
+  return (
+    <>
+      <Calculator />
+    </>
+  );
 };
-
-export { Functional };

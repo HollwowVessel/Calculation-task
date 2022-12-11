@@ -11,5 +11,5 @@ export const StyledHeader = styled.header`
 
 export const StyledAppName = styled.h1`
   color: #fff;
-  font-size: 16px;
+  font-size: 25px;
 `;

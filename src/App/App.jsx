@@ -1,7 +1,6 @@
-import { AppRouter } from './AppRouter';
-import { Header } from '@/components/Header';
+import { Header } from 'components/Header';
 import { GlobalStyles } from '@/theme';
-import { Calculator } from '@/components/Calculator';
+import { Calculator } from 'components/Calculator';
 
 const App = () => {
   return (

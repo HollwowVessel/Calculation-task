@@ -12,10 +12,10 @@ class Command {
 const DIV_MUL_NEUTRAL = 1;
 const SUB_ADD_NEUTRAL = 0;
 
-const add = (a, b) => a + b;
+const add = (a, b) => +a + +b;
 const mul = (a, b) => a * b;
 const div = (a, b) => a / b;
-const sub = (a, b) => a - b;
+const sub = (a, b) => +a - +b;
 const mod = (a, b) => a % b;
 
 const addCommand = new Command(SUB_ADD_NEUTRAL, add, '+');
