@@ -7,6 +7,8 @@ module.exports = {
       pages: path.resolve(__dirname, 'src/pages'),
       constants: path.resolve(__dirname, 'src/constants'),
       utils: path.resolve(__dirname, 'src/utils'),
+      fonts: path.resolve(__dirname, 'src/assets/fonts'),
+      icons: path.resolve(__dirname, 'src/assets/icons'),
     },
   },
 };

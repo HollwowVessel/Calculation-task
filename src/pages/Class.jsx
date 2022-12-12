@@ -1,7 +1,11 @@
 import React from 'react';
+import { GlobalStyles } from '@/theme';
 
-const Class = () => {
-  return <div>Class</div>;
+export const Class = () => {
+  return (
+    <div>
+      <GlobalStyles />
+      Class
+    </div>
+  );
 };
-
-export { Class };

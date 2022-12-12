@@ -9,12 +9,12 @@ export const StyledDisplay = styled.div`
 `;
 
 export const StyledExpressionBuilder = styled.div`
-  color: #000;
+  color: ${({ theme }) => theme.color};
   margin: 0 10px 10px 0;
 `;
 
 export const StyledNumber = styled.div`
-  color: #999;
+  color: ${({ theme }) => theme.expressionColor};
   font-size: 20px;
   margin: 0 0 5px 0;
 `;

@@ -1,13 +1,9 @@
-import { Header } from 'components/Header';
-import { GlobalStyles } from '@/theme';
-import { Calculator } from 'components/Calculator';
+import { AppRouter } from './AppRouter';
 
 const App = () => {
   return (
     <div className='App'>
-      <GlobalStyles />
-      <Header />
-      <Calculator />
+      <AppRouter />
     </div>
   );
 };

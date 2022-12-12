@@ -49,6 +49,10 @@ export const Layout = ({ setHistoryItems }) => {
       setNumber(0);
     }
 
+    if (op.indexOf(val) !== -1 && operation) {
+      setOperation(val);
+    }
+
     if (val === '=') {
       const command = getValue(operation);
       command.value = expression;
@@ -57,11 +61,11 @@ export const Layout = ({ setHistoryItems }) => {
 
       setNumber(calc.value);
       setExpression(calc.history.at(-1).join(' '));
-      setHistoryItems((prev) => [...prev, calc.history.at(-1)]);
+      setHistoryItems((prev) => [calc.history.at(-1), ...prev]);
       setOperation('');
     }
 
-    if (val === '.') {
+    if (val === '.' && String(number).indexOf('.') === -1) {
       setNumber((prev) => prev + '.');
     }
 
@@ -72,7 +76,7 @@ export const Layout = ({ setHistoryItems }) => {
 
   return (
     <StyledLayoutContainer>
-      <Display number={number} expression={expression} />
+      <Display number={number} expression={expression} operation={operation} />
       <Keypad handleValue={handleValue} />
     </StyledLayoutContainer>
   );

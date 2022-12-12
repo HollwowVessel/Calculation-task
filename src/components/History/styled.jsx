@@ -8,6 +8,7 @@ export const StyledHistoryContainer = styled.div`
   h2 {
     text-align: center;
     margin: 0px 0 40px 0;
+    color: ${({ theme }) => theme.color};
   }
 `;
 
