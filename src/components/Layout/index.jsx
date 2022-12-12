@@ -4,7 +4,9 @@ import { Keypad } from 'components/Keypad';
 import { StyledLayoutContainer } from './styled';
 import { getValue } from 'utils/helpers';
 import { numbers, op } from 'constants/calculator';
-import { calc } from '../../utils/commandPattern';
+import { calc } from 'utils/commandPattern';
+import { func } from 'prop-types';
+import { setHistory } from 'utils/localStorage';
 
 export const Layout = ({ setHistoryItems }) => {
   const [number, setNumber] = useState(0);
@@ -17,13 +19,6 @@ export const Layout = ({ setHistoryItems }) => {
     setOperation('');
   };
 
-  const clearAll = () => {
-    setNumber(0);
-    setExpression(0);
-    setOperation('');
-    setHistoryItems([]);
-  };
-
   const handleValue = (e) => {
     let val = e.target.value;
     if (val in numbers) {
@@ -32,9 +27,6 @@ export const Layout = ({ setHistoryItems }) => {
     }
 
     if (numbers.indexOf(val) === -1 && op.indexOf(val) === -1) {
-      if (val === 'CL') {
-        getValue(val, clearAll);
-      }
       if (val === 'CE') {
         getValue(val, setNumber);
       }
@@ -61,7 +53,11 @@ export const Layout = ({ setHistoryItems }) => {
 
       setNumber(calc.value);
       setExpression(calc.history.at(-1).join(' '));
-      setHistoryItems((prev) => [calc.history.at(-1), ...prev]);
+      setHistoryItems((prev) => {
+        const newHistory = [calc.history.at(-1), ...prev];
+        setHistory(newHistory);
+        return newHistory;
+      });
       setOperation('');
     }
 
@@ -80,4 +76,8 @@ export const Layout = ({ setHistoryItems }) => {
       <Keypad handleValue={handleValue} />
     </StyledLayoutContainer>
   );
+};
+
+Layout.propTypes = {
+  setHistoryItems: func,
 };

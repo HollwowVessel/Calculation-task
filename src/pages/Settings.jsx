@@ -2,17 +2,11 @@ import React from 'react';
 import { GlobalStyles } from '@/theme';
 import { SettingsLayout } from 'components/SettingsLayout';
 
-const Settings = ({ setTheme, clearTheme, theme }) => {
+export const Settings = ({ setTheme, clearAll, theme }) => {
   return (
     <div>
       <GlobalStyles />
-      <SettingsLayout
-        setTheme={setTheme}
-        clearTheme={clearTheme}
-        theme={theme}
-      />
+      <SettingsLayout setTheme={setTheme} clearAll={clearAll} theme={theme} />
     </div>
   );
 };
-
-export { Settings };

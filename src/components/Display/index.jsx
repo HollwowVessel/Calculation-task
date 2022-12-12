@@ -1,4 +1,5 @@
 import React from 'react';
+import { string } from 'prop-types';
 import { StyledDisplay, StyledExpressionBuilder, StyledNumber } from './styled';
 
 export const Display = ({ number, expression, operation }) => {
@@ -10,4 +11,10 @@ export const Display = ({ number, expression, operation }) => {
       <StyledExpressionBuilder>{number}</StyledExpressionBuilder>
     </StyledDisplay>
   );
+};
+
+Display.propTypes = {
+  number: string,
+  expression: string,
+  operation: string,
 };

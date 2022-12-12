@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ControlPanel } from 'components/ControlPanel';
 import { StyledHistoryContainer, StyledHistoryItems } from './styled';
+import { array } from 'prop-types';
 
 export const History = ({ historyItems }) => {
   const [showHistory, setShowHistory] = useState(false);
@@ -20,4 +21,8 @@ export const History = ({ historyItems }) => {
       <StyledHistoryItems>{showHistory && historyInfo}</StyledHistoryItems>
     </StyledHistoryContainer>
   );
+};
+
+History.propTypes = {
+  historyItems: array,
 };

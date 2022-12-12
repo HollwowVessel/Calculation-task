@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Functional } from 'pages/Functional';
-import { setTheme, getTheme, clearTheme } from 'utils/localStorage';
+import {
+  setTheme,
+  getTheme,
+  clearTheme,
+  clearHistory,
+} from 'utils/localStorage';
 import { Settings } from 'pages/Settings';
 import { Header } from 'components/Header';
 import { Class } from 'pages/Class';
@@ -14,8 +19,9 @@ export const AppRouter = () => {
     setThemeType(theme[e.target.value]);
     setTheme(theme[e.target.value]);
   };
-  const clearThemeType = () => {
+  const clearAll = () => {
     clearTheme();
+    clearHistory();
     setThemeType(theme.light);
   };
   return (
@@ -30,7 +36,7 @@ export const AppRouter = () => {
               element={
                 <Settings
                   setTheme={changeTheme}
-                  clearTheme={clearThemeType}
+                  clearAll={clearAll}
                   theme={themeType}
                 />
               }

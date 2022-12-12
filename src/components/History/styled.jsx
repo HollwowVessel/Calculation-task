@@ -14,7 +14,8 @@ export const StyledHistoryContainer = styled.div`
 
 export const StyledHistoryItems = styled.ul`
   list-style-type: none;
-  font-size: 20px;
+  font-size: 30px;
+  color: ${({ theme }) => theme.color};
   max-height: 80%;
   overflow: auto;
   &::-webkit-scrollbar-thumb {
