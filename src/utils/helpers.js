@@ -10,28 +10,20 @@ import {
 } from './commands';
 import { setHistory } from './localStorage';
 
-export const logicOfCalculator = (
-  val,
-  displayState,
-  dispatch,
-  setHistoryItems,
-) => {
+export const logicOfCalculator = (val, displayState, setHistoryItems) => {
   const { number, expression, operation } = displayState;
 
   if (val in numbers) {
-    dispatch({ type: 'addNumber', payload: val });
-    return;
+    return { type: 'addNumber', payload: val };
   }
 
   if (numbers.indexOf(val) === -1 && op.indexOf(val) === -1) {
     if (val === 'CE') {
-      dispatch({ type: 'clearExpression' });
-      return;
+      return { type: 'clearExpression' };
     }
     if (val === 'C') {
       calc.value = 0;
-      dispatch({ type: 'clearAll' });
-      return;
+      return { type: 'clearAll' };
     }
   }
 
@@ -40,30 +32,25 @@ export const logicOfCalculator = (
     !operation &&
     (number[0] !== '(' || number.at(-1) === ')')
   ) {
-    dispatch({ type: 'swapDisplayValues', payload: val });
-    return;
+    return { type: 'swapDisplayValues', payload: val };
   }
 
   if (op.indexOf(val) !== -1 && operation && number[0] !== '(') {
-    dispatch({ type: 'changeOperationWithoutParenthesis', payload: val });
-    return;
+    return { type: 'changeOperationWithoutParenthesis', payload: val };
   }
 
   if (val === '.' && String(number).indexOf('.') === -1) {
-    dispatch({ type: 'addDot' });
-    return;
+    return { type: 'addDot' };
   }
 
   if (val === '+/-') {
-    dispatch({ type: 'changeSign' });
-    return;
+    return { type: 'changeSign' };
   }
 
   if (val === '(' || op.indexOf(val) !== -1) {
     if (number[0] === '(' && val !== '(') {
       if (op.indexOf(String(number).at(-1)) === -1 && number.at(-1) !== '(') {
-        dispatch({ type: 'fillExpression', payload: val });
-        return;
+        return { type: 'fillExpression', payload: val };
       }
     } else if (
       (number[0] !== '(' && val === '(') ||
@@ -72,8 +59,8 @@ export const logicOfCalculator = (
       if (number.length === 1 && number.at(-1) !== 0) {
         return;
       }
-      dispatch({ type: 'startExpression' });
-      return;
+
+      return { type: 'startExpression' };
     }
   }
 
@@ -83,8 +70,7 @@ export const logicOfCalculator = (
     op.indexOf(number.at(-1)) === -1 &&
     number.at(-1) !== '('
   ) {
-    dispatch({ type: 'endExpression' });
-    return;
+    return { type: 'endExpression' };
   }
 
   if (val === '=') {
@@ -123,19 +109,21 @@ export const logicOfCalculator = (
       calc.executeCommand(command);
     }
 
-    setHistoryItems((prev) => {
-      const newHistory = [calc.history.at(-1), ...prev];
-      setHistory(newHistory);
-      return newHistory;
-    });
-    dispatch({
+    if (setHistoryItems) {
+      setHistoryItems((prev) => {
+        const newHistory = [calc.history.at(-1), ...prev];
+        setHistory(newHistory);
+        return newHistory;
+      });
+    }
+
+    return {
       type: 'getResult',
       payload: {
         expression: calc.history.at(-1).join(' '),
         number: calc.value,
       },
-    });
-    return;
+    };
   }
 };
 
