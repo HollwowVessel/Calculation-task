@@ -14,6 +14,7 @@ export const logicOfCalculator = (val, displayState, setHistoryItems) => {
   const { number, expression, operation } = displayState;
 
   if (val in numbers) {
+    if (!number.length && val === '0') return { type: '' };
     return { type: 'addNumber', payload: val };
   }
 
