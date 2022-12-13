@@ -1,6 +1,6 @@
 import { func } from 'prop-types';
 import React from 'react';
-import { StyledShowHistoryButton } from './styled';
+import { StyledShowHistoryButton } from '../styled';
 
 export const ControlPanel = ({ handleHistory }) => {
   return (

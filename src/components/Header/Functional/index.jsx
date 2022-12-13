@@ -1,6 +1,6 @@
 import React from 'react';
-import { Nav } from 'components/Nav';
-import { StyledAppName, StyledHeader } from './styled';
+import { Nav } from 'components/Nav/Functional';
+import { StyledAppName, StyledHeader } from '../styled';
 
 export const Header = () => {
   return (

@@ -15,3 +15,4 @@ class Calculator {
 }
 
 export const calc = new Calculator();
+export const calcForExp = new Calculator();

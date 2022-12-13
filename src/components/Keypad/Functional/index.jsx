@@ -1,7 +1,7 @@
 import { func } from 'prop-types';
 import React from 'react';
-import { buttonValues } from './mock';
-import { KeypadContainer, StyledButton } from './styled';
+import { buttonValues } from '../mock';
+import { KeypadContainer, StyledButton } from '../styled';
 
 export const Keypad = ({ handleValue }) => {
   const btns = buttonValues.map((el) => (

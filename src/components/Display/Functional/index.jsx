@@ -1,6 +1,10 @@
 import React from 'react';
 import { string } from 'prop-types';
-import { StyledDisplay, StyledExpressionBuilder, StyledNumber } from './styled';
+import {
+  StyledDisplay,
+  StyledExpressionBuilder,
+  StyledNumber,
+} from '../styled';
 
 export const Display = ({ number, expression, operation }) => {
   return (
@@ -14,7 +18,7 @@ export const Display = ({ number, expression, operation }) => {
 };
 
 Display.propTypes = {
-  number: string,
-  expression: string,
-  operation: string,
+  number: string.isRequired,
+  expression: string.isRequired,
+  operation: string.isRequired,
 };

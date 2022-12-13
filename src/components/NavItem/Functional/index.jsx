@@ -1,7 +1,7 @@
 import { string } from 'prop-types';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { StyledNavLink } from './styled';
+import { StyledNavLink } from '../styled';
 
 export const NavItem = ({ name, path }) => {
   const { pathname } = useLocation();

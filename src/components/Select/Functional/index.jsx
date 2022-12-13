@@ -1,6 +1,6 @@
 import React from 'react';
 import { selectOptions } from 'constants/select';
-import { StyledSelect, StyledSelectWrap } from './styled';
+import { StyledSelect, StyledSelectWrap } from '../styled';
 import { func, object } from 'prop-types';
 
 export const Select = ({ setTheme, theme }) => {

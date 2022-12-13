@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { ControlPanel } from 'components/ControlPanel';
-import { StyledHistoryContainer, StyledHistoryItems } from './styled';
+import { ControlPanel } from 'components/ControlPanel/Functional';
+import { StyledHistoryContainer, StyledHistoryItems } from '../styled';
 import { array } from 'prop-types';
 
 export const History = ({ historyItems }) => {
@@ -24,5 +24,5 @@ export const History = ({ historyItems }) => {
 };
 
 History.propTypes = {
-  historyItems: array,
+  historyItems: array.isRequired,
 };

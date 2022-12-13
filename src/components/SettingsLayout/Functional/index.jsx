@@ -1,10 +1,10 @@
 import React from 'react';
-import { Select } from 'components/Select';
+import { Select } from 'components/Select/Functional';
 import {
   SettingsLayoutContainer,
   StyledClearHistory,
   StyledSettingsName,
-} from './styled';
+} from '../styled';
 import { func, object } from 'prop-types';
 
 export const SettingsLayout = ({ setTheme, clearAll, theme }) => {

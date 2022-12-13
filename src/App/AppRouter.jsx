@@ -8,7 +8,7 @@ import {
   clearHistory,
 } from 'utils/localStorage';
 import { Settings } from 'pages/Settings';
-import { Header } from 'components/Header';
+import { Header } from 'components/Header/Functional';
 import { Class } from 'pages/Class';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '@/theme';

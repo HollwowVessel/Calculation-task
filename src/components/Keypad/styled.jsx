@@ -11,6 +11,13 @@ export const StyledButton = styled.input`
   color: ${({ theme }) => theme.color};
   background: ${({ theme }) => theme.buttonColor};
   cursor: pointer;
+  transition: 0.4s;
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 0.8;
+    scale: 1.05;
+  }
 `;
 
 export const KeypadContainer = styled.div`

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Display } from 'components/Display';
-import { Keypad } from 'components/Keypad';
-import { StyledLayoutContainer } from './styled';
-import { getValue } from 'utils/helpers';
+import { Display } from 'components/Display/Functional';
+import { Keypad } from 'components/Keypad/Functional';
+import { StyledLayoutContainer } from '../styled';
+import { getValue, count } from 'utils/helpers';
 import { numbers, op } from 'constants/calculator';
 import { calc } from 'utils/commandPattern';
 import { func } from 'prop-types';
@@ -35,18 +35,44 @@ export const Layout = ({ setHistoryItems }) => {
       }
     }
 
-    if (op.indexOf(val) !== -1 && !operation) {
+    if (op.indexOf(val) !== -1 && !operation && number[0] !== '(') {
       setOperation(val);
       setExpression(number);
       setNumber(0);
     }
 
-    if (op.indexOf(val) !== -1 && operation) {
+    if (op.indexOf(val) !== -1 && operation && number[0] !== '(') {
       setOperation(val);
     }
 
     if (val === '=') {
-      const command = getValue(operation);
+      console.log(val);
+      if (number[0] === '(') {
+        console.log(number);
+        const res = getValue(val, 0, number);
+        console.log(res);
+        const command = getValue(operation, 0, res);
+        command.value = expression;
+        calc.value = res;
+        calc.executeCommand(command);
+        calc.history[calc.history.length - 1] = [
+          expression,
+          operation,
+          number,
+          '=',
+          calc.value,
+        ];
+        setExpression(calc.history.at(-1).join(' '));
+        setNumber(calc.value);
+        setHistoryItems((prev) => {
+          const newHistory = [calc.history.at(-1), ...prev];
+          setHistory(newHistory);
+          return newHistory;
+        });
+        setOperation('');
+        return;
+      }
+      const command = getValue(operation, 0, expression);
       command.value = expression;
       calc.value = number;
       calc.executeCommand(command);
@@ -68,6 +94,24 @@ export const Layout = ({ setHistoryItems }) => {
     if (val === '+/-') {
       setNumber((prev) => -prev);
     }
+    console.log(val);
+
+    if (val === '(' || op.indexOf(val) !== -1) {
+      if (number[0] === '(' && val !== '(') {
+        if (op.indexOf(number.at(-1)) === -1) {
+          setNumber((prev) => prev + val);
+        }
+      } else if (
+        (number[0] !== '(' && val === '(') ||
+        (op.indexOf(number.at(-1)) !== -1 && val === '(')
+      ) {
+        setNumber((prev) => (prev ? prev + '(' : '('));
+      }
+    }
+
+    if (val === ')' && count(number, '(') !== count(number, ')')) {
+      setNumber((prev) => prev + ')');
+    }
   };
 
   return (
@@ -79,5 +123,5 @@ export const Layout = ({ setHistoryItems }) => {
 };
 
 Layout.propTypes = {
-  setHistoryItems: func,
+  setHistoryItems: func.isRequired,
 };

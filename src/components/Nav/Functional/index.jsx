@@ -1,7 +1,7 @@
 import React from 'react';
 import { routes } from 'constants/routes';
-import { StyledNavBar } from './styled';
-import { NavItem } from 'components/NavItem';
+import { StyledNavBar } from '../styled';
+import { NavItem } from 'components/NavItem/Functional';
 
 export const Nav = () => {
   let links = routes.map(({ id, path, name }) => (
