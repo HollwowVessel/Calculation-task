@@ -17,10 +17,12 @@ export class Display extends React.Component {
     console.log(expression, operation, number);
     return (
       <StyledDisplay>
-        <StyledNumber>
+        <StyledNumber id='number'>
           {expression} {operation}
         </StyledNumber>
-        <StyledExpressionBuilder>{number}</StyledExpressionBuilder>
+        <StyledExpressionBuilder id='expression'>
+          {number}
+        </StyledExpressionBuilder>
       </StyledDisplay>
     );
   }

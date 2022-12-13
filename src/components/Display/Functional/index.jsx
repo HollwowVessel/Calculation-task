@@ -6,19 +6,17 @@ import {
   StyledNumber,
 } from '../styled';
 
-export const Display = ({ number, expression, operation, displayState }) => {
+export const Display = ({ displayState }) => {
   return (
     <StyledDisplay>
-      <StyledNumber>
+      <StyledNumber id='number'>
         {displayState.expression} {displayState.operation}
       </StyledNumber>
-      <StyledExpressionBuilder>{displayState.number}</StyledExpressionBuilder>
+      <StyledExpressionBuilder id='expression'>
+        {displayState.number}
+      </StyledExpressionBuilder>
     </StyledDisplay>
   );
 };
 
-Display.propTypes = {
-  number: string.isRequired,
-  expression: string.isRequired,
-  operation: string.isRequired,
-};
+Display.propTypes = {};

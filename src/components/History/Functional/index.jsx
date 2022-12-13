@@ -18,7 +18,9 @@ export const History = ({ historyItems }) => {
     <StyledHistoryContainer>
       <h2>History</h2>
       <ControlPanel handleHistory={handleHistory} />
-      <StyledHistoryItems>{showHistory && historyInfo}</StyledHistoryItems>
+      <StyledHistoryItems id='history'>
+        {showHistory && historyInfo}
+      </StyledHistoryItems>
     </StyledHistoryContainer>
   );
 };

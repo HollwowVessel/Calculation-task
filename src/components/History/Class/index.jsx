@@ -23,7 +23,7 @@ export class History extends React.Component {
       <StyledHistoryContainer>
         <h2>History</h2>
         <ControlPanel handleHistory={this.handleHistory} />
-        <StyledHistoryItems>
+        <StyledHistoryItems id='history'>
           {this.state.showHistory && historyInfo}
         </StyledHistoryItems>
       </StyledHistoryContainer>

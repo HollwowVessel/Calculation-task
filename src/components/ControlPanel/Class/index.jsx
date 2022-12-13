@@ -10,7 +10,7 @@ export class ControlPanel extends React.Component {
   render() {
     const { handleHistory } = this.props;
     return (
-      <StyledShowHistoryButton onClick={handleHistory}>
+      <StyledShowHistoryButton onClick={handleHistory} id='show-history'>
         Show
       </StyledShowHistoryButton>
     );

@@ -43,7 +43,7 @@ export const logicOfCalculator = (val, displayState, setHistoryItems) => {
     return { type: 'addDot' };
   }
 
-  if (val === '+/-') {
+  if (val === '+/-' && number[0] !== '(') {
     return { type: 'changeSign' };
   }
 
@@ -125,6 +125,7 @@ export const logicOfCalculator = (val, displayState, setHistoryItems) => {
       },
     };
   }
+  return { type: '' };
 };
 
 const getCommand = (val) => {

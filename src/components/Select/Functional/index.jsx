@@ -6,9 +6,9 @@ import { func, object } from 'prop-types';
 export const Select = ({ setTheme, theme }) => {
   return (
     <StyledSelectWrap>
-      <StyledSelect onChange={setTheme()} value={theme.name}>
+      <StyledSelect onChange={setTheme()} value={theme.name} id='theme-select'>
         {selectOptions.map(({ id, value, text }) => (
-          <option key={id} value={value}>
+          <option key={id} value={value} id={`${value}`}>
             {text}
           </option>
         ))}

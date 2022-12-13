@@ -12,7 +12,7 @@ export const SettingsLayout = ({ setTheme, clearAll, theme }) => {
     <SettingsLayoutContainer>
       <StyledSettingsName>Settings</StyledSettingsName>
       <Select setTheme={setTheme} theme={theme} />
-      <StyledClearHistory onClick={clearAll}>
+      <StyledClearHistory onClick={clearAll} id='history-clear'>
         Clear All History
       </StyledClearHistory>
     </SettingsLayoutContainer>

@@ -4,7 +4,7 @@ import { StyledShowHistoryButton } from '../styled';
 
 export const ControlPanel = ({ handleHistory }) => {
   return (
-    <StyledShowHistoryButton onClick={handleHistory}>
+    <StyledShowHistoryButton onClick={handleHistory} id='show-history'>
       Show
     </StyledShowHistoryButton>
   );
