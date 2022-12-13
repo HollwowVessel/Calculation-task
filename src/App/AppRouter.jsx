@@ -42,6 +42,7 @@ export const AppRouter = () => {
               }
             />
             <Route path='/Class' element={<Class />} />
+            <Route path='*' element={<Functional />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

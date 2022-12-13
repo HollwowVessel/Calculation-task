@@ -58,7 +58,7 @@ export const logicOfCalculator = (val, displayState, setHistoryItems) => {
       op.indexOf(number.at(-1)) !== -1
     ) {
       if (number.length === 1 && number.at(-1) !== 0) {
-        return;
+        return { type: '' };
       }
 
       return { type: 'startExpression' };
