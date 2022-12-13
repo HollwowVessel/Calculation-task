@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Nav } from 'components/Nav/Class';
+import { StyledAppName, StyledHeader } from '../styled';
 
-class Header extends Component {
+export class Header extends React.Component {
   render() {
-    return <div>index</div>;
+    return (
+      <StyledHeader>
+        <StyledAppName>Calculator App</StyledAppName>
+        <Nav />
+      </StyledHeader>
+    );
   }
 }
-
-export { Header };

@@ -1,7 +1,12 @@
 import React from 'react';
+import { Calculator } from 'components/Calculator/Functional';
+import { GlobalStyles } from '@/theme.jsx';
 
-const Functional = () => {
-  return <div>Functional</div>;
+export const Functional = () => {
+  return (
+    <>
+      <GlobalStyles />
+      <Calculator />
+    </>
+  );
 };
-
-export { Functional };

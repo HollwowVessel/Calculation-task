@@ -1,7 +1,12 @@
 import React from 'react';
+import { GlobalStyles } from '@/theme';
+import { Calculator } from 'components/Calculator/Class';
 
-const Class = () => {
-  return <div>Class</div>;
+export const Class = () => {
+  return (
+    <div>
+      <GlobalStyles />
+      <Calculator />
+    </div>
+  );
 };
-
-export { Class };

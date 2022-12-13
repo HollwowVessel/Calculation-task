@@ -1,7 +1,12 @@
 import React from 'react';
+import { Nav } from 'components/Nav/Functional';
+import { StyledAppName, StyledHeader } from '../styled';
 
-const Header = () => {
-  return <div>index</div>;
+export const Header = () => {
+  return (
+    <StyledHeader>
+      <StyledAppName>Calculator App</StyledAppName>
+      <Nav />
+    </StyledHeader>
+  );
 };
-
-export { Header };

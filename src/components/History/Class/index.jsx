@@ -1,9 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { ControlPanel } from 'components/ControlPanel/Class';
+import { StyledHistoryContainer, StyledHistoryItems } from '../styled';
+import { array } from 'prop-types';
 
-class History extends Component {
+export class History extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { showHistory: false };
+  }
+
+  handleHistory = () => {
+    this.setState((prev) => ({ ...prev, showHistory: !prev.showHistory }));
+  };
+
   render() {
-    return <div>index</div>;
+    const { historyItems } = this.props;
+    const historyInfo = historyItems.map((el, id) => (
+      <li key={id}>{el.join(' ')}</li>
+    ));
+
+    return (
+      <StyledHistoryContainer>
+        <h2>History</h2>
+        <ControlPanel handleHistory={this.handleHistory} />
+        <StyledHistoryItems id='history'>
+          {this.state.showHistory && historyInfo}
+        </StyledHistoryItems>
+      </StyledHistoryContainer>
+    );
   }
 }
 
-export { History };
+History.propTypes = {
+  historyItems: array.isRequired,
+};
