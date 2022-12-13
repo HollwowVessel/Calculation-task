@@ -120,7 +120,7 @@ export const Layout = ({ setHistoryItems }) => {
       <Keypad handleValue={handleValue} />
     </StyledLayoutContainer>
   );
-}; //Почему ты не работаешь, ебанная хуйня. Я ебал твою мать, твоего отца и твоего разраба. Господи, блять, убейся тот, кто это писал
+};
 
 Layout.propTypes = {
   setHistoryItems: func.isRequired,
