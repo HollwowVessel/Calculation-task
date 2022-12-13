@@ -97,7 +97,6 @@ export class Layout extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <StyledLayoutContainer>
         <Display displayState={this.state} />

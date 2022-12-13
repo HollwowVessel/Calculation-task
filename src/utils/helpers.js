@@ -13,7 +13,8 @@ import { setHistory } from './localStorage';
 export const logicOfCalculator = (val, displayState, setHistoryItems) => {
   const { number, expression, operation } = displayState;
 
-  if (val in numbers) {
+  if (numbers.indexOf(+val) !== -1) {
+    if (number && number.at(-1) === ')') return { type: '' };
     if (!number.length && val === '0') return { type: '' };
     return { type: 'addNumber', payload: val };
   }
@@ -69,13 +70,13 @@ export const logicOfCalculator = (val, displayState, setHistoryItems) => {
     val === ')' &&
     count(number, '(') !== count(number, ')') &&
     op.indexOf(number.at(-1)) === -1 &&
-    number.at(-1) !== '('
+    number.at(-1) !== '(' &&
+    numbers.indexOf(number.at(-1)) === -1
   ) {
     return { type: 'endExpression' };
   }
 
   if (val === '=') {
-    console.log(calc.value);
     if (number[0] === '(' && count(number, '(') !== count(number, ')')) {
       return;
     }
@@ -92,7 +93,7 @@ export const logicOfCalculator = (val, displayState, setHistoryItems) => {
         res = calculateExpression(val, number);
         command.value = calculateExpression(val, expression);
       }
-      console.log(res, command.value);
+
       calc.value = res;
       calc.executeCommand(command);
       calc.history[calc.history.length - 1] = [
@@ -105,7 +106,6 @@ export const logicOfCalculator = (val, displayState, setHistoryItems) => {
     } else {
       const command = getCommand(operation, expression);
       command.value = expression;
-      console.log(command.value);
       calc.value = number;
       calc.executeCommand(command);
     }
@@ -151,7 +151,6 @@ const getCommand = (val) => {
 
 const calculateExpression = (val, number) => {
   if (number.at(-1) === ')' && val === '=') {
-    console.log(calculate(number));
     return calculate(number);
   }
 };
@@ -167,7 +166,7 @@ let doEasyMath = (a, b, sing) => {
 let solveProblem = (stack, sing) => {
   let a = stack.pop() ?? 0;
   let b = stack.pop() ?? 0;
-  console.log(a, b);
+
   stack.push(doEasyMath(b, a, sing));
 };
 
@@ -212,7 +211,6 @@ const calculate = (string) => {
       while (localSing !== '(' && localSing?.length) {
         solveProblem(numberStack, localSing, singStack);
         localSing = singStack.pop();
-        console.log(singStack, numberStack);
       }
     } else {
       let number = string.substring(i).match(/[0-9]+/);

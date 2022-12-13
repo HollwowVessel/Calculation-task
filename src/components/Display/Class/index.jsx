@@ -9,12 +9,11 @@ import {
 export class Display extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
   render() {
     const { expression, operation, number } = this.props.displayState;
-    console.log(expression, operation, number);
+
     return (
       <StyledDisplay>
         <StyledNumber id='number'>
