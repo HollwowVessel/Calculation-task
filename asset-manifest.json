@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/Calculation-task/static/js/main.a735e40e.js",
+    "main.js": "/Calculation-task/static/js/main.42d316ba.js",
     "static/media/dropDownIcon.svg": "/Calculation-task/static/media/dropDownIcon.144744f79ae4926c48e46fa48cab66f5.svg",
     "index.html": "/Calculation-task/index.html",
-    "main.a735e40e.js.map": "/Calculation-task/static/js/main.a735e40e.js.map"
+    "main.42d316ba.js.map": "/Calculation-task/static/js/main.42d316ba.js.map"
   },
   "entrypoints": [
-    "static/js/main.a735e40e.js"
+    "static/js/main.42d316ba.js"
   ]
 }
