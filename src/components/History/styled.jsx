@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledHistoryContainer = styled.div`
   border-left: 2px solid #000;
   width: 30vw;
-  padding: 0 0 0 20px;
+  padding: 0 20px 0 20px;
 
   h2 {
     text-align: center;
@@ -14,7 +14,7 @@ export const StyledHistoryContainer = styled.div`
 
 export const StyledHistoryItems = styled.ul`
   list-style-type: none;
-  font-size: 30px;
+  font-size: 20px;
   color: ${({ theme }) => theme.color};
   max-height: 80%;
   overflow: auto;
@@ -26,7 +26,7 @@ export const StyledHistoryItems = styled.ul`
     width: 10px;
   }
   &::-webkit-scrollbar-track {
-    background: #fff;
+    background: ${({ theme }) => theme.background};
   }
   li {
     margin: 5px 0px 5px 0;

@@ -6,13 +6,13 @@ import {
   StyledNumber,
 } from '../styled';
 
-export const Display = ({ number, expression, operation }) => {
+export const Display = ({ number, expression, operation, displayState }) => {
   return (
     <StyledDisplay>
       <StyledNumber>
-        {expression} {operation}
+        {displayState.expression} {displayState.operation}
       </StyledNumber>
-      <StyledExpressionBuilder>{number}</StyledExpressionBuilder>
+      <StyledExpressionBuilder>{displayState.number}</StyledExpressionBuilder>
     </StyledDisplay>
   );
 };
