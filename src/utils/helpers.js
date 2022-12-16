@@ -29,7 +29,7 @@ export const logicOfCalculator = (val, displayState, setHistoryItems) => {
     }
   }
 
-  if (op.indexOf(val) !== -1 && operation) {
+  if (op.indexOf(val) !== -1 && operation && number[0] !== '(') {
     console.log(expression, number, operation, val);
     calc.value = expression;
     const command = getCommand(operation);

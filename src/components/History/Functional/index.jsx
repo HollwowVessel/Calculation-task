@@ -4,7 +4,7 @@ import { array } from 'prop-types';
 
 export const History = ({ historyItems }) => {
   const historyInfo = historyItems.map((el, id) => (
-    <li key={id}>{el.join('')}</li>
+    <li key={id}>{el.join(' ')}</li>
   ));
   console.log(historyInfo);
 

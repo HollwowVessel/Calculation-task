@@ -33,7 +33,7 @@ export class Calculator extends React.Component {
       <StyledCalculatorContainer>
         <Layout changeHistory={this.changeHistory} />
         <ControlPanel handleHistory={this.handleHistory} />
-        {showHistory && <History historyItems={historyItems} />}
+        {showHistory && <History id='history' historyItems={historyItems} />}
       </StyledCalculatorContainer>
     );
   }
