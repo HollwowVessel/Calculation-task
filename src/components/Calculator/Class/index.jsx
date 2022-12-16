@@ -4,7 +4,6 @@ import { History } from 'components/History/Class';
 import { Layout } from 'components/Layout/Class';
 import { StyledCalculatorContainer } from '../styled';
 import { ControlPanel } from 'components/ControlPanel/Class';
-
 import { getHistory } from 'utils/localStorage';
 
 export class Calculator extends React.Component {
@@ -13,7 +12,7 @@ export class Calculator extends React.Component {
     console.log(getHistory());
     this.state = {
       showHistory: false,
-      historyItems: getHistory().reverse() || [],
+      historyItems: getHistory()?.reverse() || [],
     };
   }
 

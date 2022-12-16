@@ -8,7 +8,7 @@ import { ControlPanel } from 'components/ControlPanel/Functional';
 
 export const Calculator = () => {
   const [historyItems, setHistoryItems] = useState(
-    getHistory().reverse() || [],
+    getHistory()?.reverse() || [],
   );
 
   const [showHistory, setShowHistory] = useState(false);
