@@ -1,26 +1,17 @@
-import React, { useState } from 'react';
-import { ControlPanel } from 'components/ControlPanel/Functional';
+import React from 'react';
 import { StyledHistoryContainer, StyledHistoryItems } from '../styled';
 import { array } from 'prop-types';
 
 export const History = ({ historyItems }) => {
-  const [showHistory, setShowHistory] = useState(false);
-
-  const handleHistory = function () {
-    setShowHistory((prev) => !prev);
-  };
-
   const historyInfo = historyItems.map((el, id) => (
-    <li key={id}>{el.join(' ')}</li>
+    <li key={id}>{el.join('')}</li>
   ));
+  console.log(historyInfo);
 
   return (
-    <StyledHistoryContainer>
+    <StyledHistoryContainer id='historyContainer'>
       <h2>History</h2>
-      <ControlPanel handleHistory={handleHistory} />
-      <StyledHistoryItems id='history'>
-        {showHistory && historyInfo}
-      </StyledHistoryItems>
+      <StyledHistoryItems id='history'>{historyInfo}</StyledHistoryItems>
     </StyledHistoryContainer>
   );
 };

@@ -7,4 +7,6 @@ export const StyledShowHistoryButton = styled.button`
   margin: 0 0 20px 0;
   border-radius: 20px;
   cursor: pointer;
+  width: 50px;
+  height: 50px;
 `;

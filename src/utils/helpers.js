@@ -29,16 +29,36 @@ export const logicOfCalculator = (val, displayState, setHistoryItems) => {
     }
   }
 
+  if (op.indexOf(val) !== -1 && operation) {
+    console.log(expression, number, operation, val);
+    calc.value = expression;
+    const command = getCommand(operation);
+    command.value = number;
+    calc.executeCommand(command);
+    console.log(calc.history);
+    if (setHistoryItems) {
+      setHistoryItems((prev) => {
+        const newHistory = [calc.history.at(-1), ...prev];
+        setHistory(newHistory);
+        return newHistory;
+      });
+    }
+    return {
+      type: 'getResultWithoutEqualSign',
+      payload: {
+        number: 0,
+        expression: calc.value,
+        operation: val,
+      },
+    };
+  }
+
   if (
     op.indexOf(val) !== -1 &&
     !operation &&
     (number[0] !== '(' || number.at(-1) === ')')
   ) {
     return { type: 'swapDisplayValues', payload: val };
-  }
-
-  if (op.indexOf(val) !== -1 && operation && number[0] !== '(') {
-    return { type: 'changeOperationWithoutParenthesis', payload: val };
   }
 
   if (val === '.' && String(number).indexOf('.') === -1) {
@@ -80,6 +100,7 @@ export const logicOfCalculator = (val, displayState, setHistoryItems) => {
     if (number[0] === '(' && count(number, '(') !== count(number, ')')) {
       return;
     }
+    console.log(calc.history);
     if (number[0] === '(' || expression[0] === '(') {
       const command = getCommand(operation);
       let res = 0;
@@ -109,13 +130,9 @@ export const logicOfCalculator = (val, displayState, setHistoryItems) => {
       calc.value = number;
       calc.executeCommand(command);
     }
-
     if (setHistoryItems) {
-      setHistoryItems((prev) => {
-        const newHistory = [calc.history.at(-1), ...prev];
-        setHistory(newHistory);
-        return newHistory;
-      });
+      const newHistory = calc.history.at(-1);
+      setHistoryItems((prev) => [newHistory, ...prev]);
     }
 
     return {

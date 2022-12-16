@@ -6,7 +6,6 @@ import { KeypadContainer, StyledButton } from '../styled';
 export class Keypad extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
   render() {

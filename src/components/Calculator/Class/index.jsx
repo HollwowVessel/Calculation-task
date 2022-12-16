@@ -3,23 +3,38 @@ import React from 'react';
 import { History } from 'components/History/Class';
 import { Layout } from 'components/Layout/Class';
 import { StyledCalculatorContainer } from '../styled';
+import { ControlPanel } from 'components/ControlPanel/Class';
+
 import { getHistory } from 'utils/localStorage';
 
 export class Calculator extends React.Component {
   constructor() {
     super();
-    this.state = { historyItems: getHistory().reverse() };
+    console.log(getHistory());
+    this.state = {
+      showHistory: false,
+      historyItems: getHistory().reverse() || [],
+    };
   }
 
+  handleHistory = () => {
+    this.setState((prev) => ({ ...prev, showHistory: !prev.showHistory }));
+  };
+
   changeHistory = () => {
-    this.setState({ historyItems: getHistory().reverse() });
+    this.setState((prev) => ({
+      ...prev,
+      historyItems: getHistory().reverse(),
+    }));
   };
 
   render() {
+    const { showHistory, historyItems } = this.state;
     return (
       <StyledCalculatorContainer>
-        <Layout setHistoryItems={this.changeHistory} />
-        <History historyItems={this.state.historyItems} />
+        <Layout changeHistory={this.changeHistory} />
+        <ControlPanel handleHistory={this.handleHistory} />
+        {showHistory && <History historyItems={historyItems} />}
       </StyledCalculatorContainer>
     );
   }

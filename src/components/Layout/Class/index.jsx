@@ -4,6 +4,8 @@ import { Keypad } from 'components/Keypad/Class';
 import { StyledLayoutContainer } from '../styled';
 import { func } from 'prop-types';
 import { logicOfCalculator } from 'utils/helpers';
+import { setHistory } from 'utils/localStorage';
+import { calc } from '../../../utils/commandPattern';
 
 export class Layout extends React.Component {
   constructor(props) {
@@ -11,9 +13,13 @@ export class Layout extends React.Component {
     this.state = { number: 0, expression: 0, operation: '' };
   }
 
+  componentDidUpdate() {
+    setHistory(calc.history);
+  }
+
   handleValue = (e) => {
     const val = e.target.value;
-    const { setHistoryItems } = this.props;
+
     const action = logicOfCalculator(val, this.state);
     switch (action.type) {
       case 'clearAll': {
@@ -45,7 +51,8 @@ export class Layout extends React.Component {
       }
 
       case 'getResult': {
-        setHistoryItems();
+        setHistory(calc.history);
+        this.props.changeHistory();
         return this.setState({
           expression: action.payload.expression,
           number: action.payload.number,
@@ -89,6 +96,15 @@ export class Layout extends React.Component {
       }
       case 'clearExpression': {
         return this.setState((prev) => ({ ...prev, number: 0 }));
+      }
+      case 'getResultWithoutEqualSign': {
+        setHistory(calc.history);
+        this.props.changeHistory();
+        return this.setState({
+          operation: action.payload.operation,
+          expression: action.payload.expression,
+          number: 0,
+        });
       }
       default: {
         return null;

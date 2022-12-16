@@ -20,8 +20,7 @@ export const setHistory = (history) => {
 
 export const getHistory = () => {
   const history = JSON.parse(localStorage.getItem('history'));
-
-  return history ? history : [];
+  return history;
 };
 
 export const clearHistory = () => {
