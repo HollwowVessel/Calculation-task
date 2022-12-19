@@ -7,7 +7,7 @@ import { calc } from "utils/commandPattern";
 import { getHistory, setHistory } from "utils/localStorage";
 import { logicOfCalculator } from "utils/logicOfCalculator";
 
-import { StyledCalculatorContainer, StyledLayoutContainer } from "../styled";
+import { CalculatorContainer, LayoutContainer } from "../styled";
 
 export class Calculator extends React.Component {
   constructor() {
@@ -143,14 +143,14 @@ export class Calculator extends React.Component {
   render() {
     const { showHistory, historyItems } = this.state;
     return (
-      <StyledCalculatorContainer>
-        <StyledLayoutContainer>
+      <CalculatorContainer>
+        <LayoutContainer>
           <Display displayState={this.state} />
           <Keypad handleValue={this.handleValue} />
-        </StyledLayoutContainer>
+        </LayoutContainer>
         <ControlPanel handleHistory={this.handleHistory} />
         {showHistory && <History id="history" historyItems={historyItems} />}
-      </StyledCalculatorContainer>
+      </CalculatorContainer>
     );
   }
 }

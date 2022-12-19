@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-export const StyledHeader = styled.header`
+export const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,18 +9,18 @@ export const StyledHeader = styled.header`
   background: #131313;
 `;
 
-export const StyledAppName = styled.h1`
+export const AppName = styled.h1`
   color: #fff;
   font-size: 25px;
 `;
 
-export const StyledNavBar = styled.ul`
+export const NavBar = styled.ul`
   list-style-type: none;
   display: flex;
   gap: 20px;
 `;
 
-export const StyledNavLink = styled(NavLink)`
+export const NavLinkItem = styled(NavLink)`
   color: #fff;
   text-decoration: none;
   font-size: 25px;

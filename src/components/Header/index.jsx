@@ -2,28 +2,23 @@ import { routes } from "constants/routes";
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-import {
-  StyledAppName,
-  StyledHeader,
-  StyledNavBar,
-  StyledNavLink,
-} from "./styled";
+import { AppName, HeaderWrapper, NavBar, NavLinkItem } from "./styled";
 
 export function Header() {
   const { pathname } = useLocation();
 
   return (
-    <StyledHeader>
-      <StyledAppName>Calculator App</StyledAppName>
-      <StyledNavBar>
+    <HeaderWrapper>
+      <AppName>Calculator App</AppName>
+      <NavBar>
         {routes.map(({ id, path, name }) => (
           <li key={id}>
-            <StyledNavLink $isActive={pathname === `/${path}`} to={path}>
+            <NavLinkItem $isActive={pathname === `/${path}`} to={path}>
               {name}
-            </StyledNavLink>
+            </NavLinkItem>
           </li>
         ))}
-      </StyledNavBar>
-    </StyledHeader>
+      </NavBar>
+    </HeaderWrapper>
   );
 }

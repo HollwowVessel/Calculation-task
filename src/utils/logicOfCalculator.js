@@ -12,7 +12,6 @@ import {
 
 export const logicOfCalculator = (val, displayState, setHistoryItems) => {
   const { number, expression, operation } = displayState;
-  console.log(operation);
   const resObj = { val, number, expression, operation, setHistoryItems };
   const addNumberRes = addNumber(number, val);
   const wrongOperationsRes = wrongOperations(val, number, operation);
@@ -23,8 +22,6 @@ export const logicOfCalculator = (val, displayState, setHistoryItems) => {
   const startExpressionRes = startExpression(val, number);
   const getResultRes = getResult(resObj);
   const endExpressionRes = endExpression(val, number);
-
-  console.log(getResultWithoutEqualSignRes, resObj);
 
   if (addNumberRes) {
     return addNumberRes;

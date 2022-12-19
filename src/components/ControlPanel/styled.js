@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledShowHistoryButton = styled.button`
+export const ShowHistoryButton = styled.button`
   padding: 10px;
   color: ${({ theme }) => theme.color};
   background: ${({ theme }) => theme.buttonColor};

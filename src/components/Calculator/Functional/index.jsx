@@ -7,7 +7,7 @@ import { getHistory } from "utils/localStorage";
 import { logicOfCalculator } from "utils/logicOfCalculator";
 import { initialState, reducer } from "utils/reducer";
 
-import { StyledCalculatorContainer, StyledLayoutContainer } from "../styled";
+import { CalculatorContainer, LayoutContainer } from "../styled";
 
 export function Calculator() {
   const [historyItems, setHistoryItems] = useState(
@@ -28,13 +28,13 @@ export function Calculator() {
   };
 
   return (
-    <StyledCalculatorContainer>
-      <StyledLayoutContainer>
+    <CalculatorContainer>
+      <LayoutContainer>
         <Display displayState={displayState} />
         <Keypad handleValue={handleValue} />
-      </StyledLayoutContainer>
+      </LayoutContainer>
       <ControlPanel handleHistory={handleHistory} />
       {showHistory && <History historyItems={historyItems} />}
-    </StyledCalculatorContainer>
+    </CalculatorContainer>
   );
 }

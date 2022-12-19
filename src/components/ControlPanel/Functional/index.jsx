@@ -1,13 +1,13 @@
 import { func } from "prop-types";
 import React from "react";
 
-import { StyledShowHistoryButton } from "../styled";
+import { ShowHistoryButton } from "../styled";
 
 export function ControlPanel({ handleHistory }) {
   return (
-    <StyledShowHistoryButton onClick={handleHistory} id="show-history">
+    <ShowHistoryButton onClick={handleHistory} id="show-history">
       Show
-    </StyledShowHistoryButton>
+    </ShowHistoryButton>
   );
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { StyledErrorHeader } from "./styled";
+import { ErrorHeader } from "./styled";
 
 const ErrorBoundary = class extends Component {
   constructor(props) {
@@ -14,9 +14,7 @@ const ErrorBoundary = class extends Component {
 
   render() {
     if (this.state.hasError) {
-      return (
-        <StyledErrorHeader>Ooops. Something went wrong!</StyledErrorHeader>
-      );
+      return <ErrorHeader>Ooops. Something went wrong!</ErrorHeader>;
     }
     return this.props.children;
   }

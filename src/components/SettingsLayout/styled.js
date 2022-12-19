@@ -8,13 +8,13 @@ export const SettingsLayoutContainer = styled.div`
   overflow: hidden;
 `;
 
-export const StyledSettingsName = styled.h2`
+export const SettingsName = styled.h2`
   font-size: 50px;
   color: #000;
   margin: 0 0 60px 0;
 `;
 
-export const StyledClearHistory = styled.button`
+export const ClearHistory = styled.button`
   display: block;
   cursor: pointer;
   border-radius: 8px;
@@ -25,7 +25,7 @@ export const StyledClearHistory = styled.button`
   text-align: left;
 `;
 
-export const StyledSelect = styled.select`
+export const Select = styled.select`
   cursor: pointer;
   width: 400px;
   height: 90px;
@@ -40,7 +40,7 @@ export const StyledSelect = styled.select`
   font-size: 24px;
 `;
 
-export const StyledSelectWrap = styled.div`
+export const SelectWrap = styled.div`
   cursor: pointer;
   position: relative;
   width: 400px;

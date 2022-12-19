@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledHistoryContainer = styled.div`
+export const HistoryContainer = styled.div`
   border-left: 2px solid #000;
   width: 30vw;
   padding: 0 20px 0 20px;
@@ -12,7 +12,7 @@ export const StyledHistoryContainer = styled.div`
   }
 `;
 
-export const StyledHistoryItems = styled.ul`
+export const HistoryItems = styled.ul`
   list-style-type: none;
   font-size: 20px;
   color: ${({ theme }) => theme.color};
