@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CalculatorContainer = styled.div`
   display: flex;
-  height: 91vh;
+  height: 90vh;
   padding: 20px 0 0 0;
   background: ${({ theme }) => theme.background};
 `;

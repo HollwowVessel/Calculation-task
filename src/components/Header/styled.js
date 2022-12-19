@@ -7,6 +7,7 @@ export const HeaderWrapper = styled.header`
   align-items: center;
   padding: 20px 40px 20px 40px;
   background: #131313;
+  height: 10vh;
 `;
 
 export const AppName = styled.h1`

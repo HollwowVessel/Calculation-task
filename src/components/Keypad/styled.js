@@ -24,6 +24,6 @@ export const KeypadContainer = styled.div`
   display: grid;
   justify-content: center;
   margin: 0 auto;
-  grid-template-columns: repeat(5, 100px);
-  gap: 5% 5%;
+  grid-template-columns: repeat(5, 80px);
+  gap: 2% 2%;
 `;

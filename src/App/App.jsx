@@ -21,8 +21,8 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Header />
       <ThemeProvider theme={themeType}>
-        <Header />
         <Routes>
           <Route path="/" element={<HomeFunction />} />
           <Route
