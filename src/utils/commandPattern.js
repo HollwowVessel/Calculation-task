@@ -1,4 +1,6 @@
-import { getHistory, setHistory } from './localStorage';
+import { PRECISION } from "constants/calculator";
+
+import { getHistory, setHistory } from "./localStorage";
 
 class Calculator {
   constructor() {
@@ -8,8 +10,9 @@ class Calculator {
 
   executeCommand(command) {
     const historyElement = [command.value, command.operation, this.value];
-    this.value = Math.round(command.execute(this.value) * 1e3) / 1e3;
-    this.history.push([...historyElement, '=', this.value]);
+    this.value =
+      Math.round(command.execute(this.value) * PRECISION) / PRECISION;
+    this.history.push([...historyElement, "=", this.value]);
     setHistory(this.history);
   }
 }

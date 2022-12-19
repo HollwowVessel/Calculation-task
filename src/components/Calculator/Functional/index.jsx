@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
+import { ControlPanel } from "components/ControlPanel/Functional";
+import { Display } from "components/Display/Class";
+import { History } from "components/History/Functional";
+import { Keypad } from "components/Keypad/Functional";
+import React, { useReducer, useState } from "react";
+import { getHistory } from "utils/localStorage";
+import { logicOfCalculator } from "utils/logicOfCalculator";
+import { initialState, reducer } from "utils/reducer";
 
-import { History } from 'components/History/Functional';
-import { Layout } from 'components/Layout/Functional';
-import { StyledCalculatorContainer } from '../styled';
-import { getHistory } from 'utils/localStorage';
-import { ControlPanel } from 'components/ControlPanel/Functional';
+import { StyledCalculatorContainer, StyledLayoutContainer } from "../styled";
 
-export const Calculator = () => {
+export function Calculator() {
   const [historyItems, setHistoryItems] = useState(
-    getHistory()?.reverse() || [],
+    getHistory()?.reverse() || []
   );
+
+  const [displayState, dispatch] = useReducer(reducer, initialState);
+
+  const handleValue = (e) => {
+    const val = e.target.value;
+    dispatch(logicOfCalculator(val, displayState, setHistoryItems));
+  };
 
   const [showHistory, setShowHistory] = useState(false);
 
@@ -19,9 +29,12 @@ export const Calculator = () => {
 
   return (
     <StyledCalculatorContainer>
-      <Layout setHistoryItems={setHistoryItems} />
+      <StyledLayoutContainer>
+        <Display displayState={displayState} />
+        <Keypad handleValue={handleValue} />
+      </StyledLayoutContainer>
       <ControlPanel handleHistory={handleHistory} />
       {showHistory && <History historyItems={historyItems} />}
     </StyledCalculatorContainer>
   );
-};
+}

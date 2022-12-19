@@ -1,16 +1,20 @@
-describe('checkKeyboard', () => {
-  it('checkNumericValues', () => {
-    cy.visit('http://localhost:3000');
-    cy.visit('http://localhost:3000/Settings');
-    cy.visit('http://localhost:3000/Class');
-    cy.visit('http://localhost:3000');
-    cy.url().should('eq', 'http://localhost:3000/');
+describe("checkKeyboard", () => {
+  it("checkNumericValues", () => {
+    cy.visit("http://localhost:3000");
+    cy.get('a[href="/Class"]').click();
+    cy.get('a[href="/"]').click();
+    cy.get('a[href="/Settings"]').click();
+    cy.get('a[href="/"]').click();
+    cy.url().should("eq", "http://localhost:3000/");
   }),
-    it('checkNumericValues', () => {
-      cy.visit('http://localhost:3000/Class');
-      cy.visit('http://localhost:3000/Settings');
-      cy.visit('http://localhost:3000/');
-      cy.visit('http://localhost:3000/Class');
-      cy.url().should('eq', 'http://localhost:3000/Class');
+    it("checkNumericValues", () => {
+      cy.visit("http://localhost:3000/Class");
+      cy.get('a[href="/"]').click();
+      cy.get('a[href="/Settings"]').click();
+      cy.get('a[href="/Class"]').click();
+      cy.get('a[href="/"]').click();
+      cy.get('a[href="/"]').click();
+      cy.get('a[href="/Class"]').click();
+      cy.url().should("eq", "http://localhost:3000/Class");
     });
 });

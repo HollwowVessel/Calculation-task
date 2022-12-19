@@ -1,22 +1,22 @@
-import React from 'react';
+import React from "react";
 
 import {
   StyledDisplay,
   StyledExpressionBuilder,
   StyledNumber,
-} from '../styled';
+} from "../styled";
 
-export const Display = ({ displayState }) => {
+export function Display({ displayState }) {
   return (
     <StyledDisplay>
-      <StyledNumber id='number'>
+      <StyledNumber id="number">
         {displayState.expression} {displayState.operation}
       </StyledNumber>
-      <StyledExpressionBuilder id='expression'>
+      <StyledExpressionBuilder id="expression">
         {displayState.number}
       </StyledExpressionBuilder>
     </StyledDisplay>
   );
-};
+}
 
 Display.propTypes = {};

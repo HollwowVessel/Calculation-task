@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import { StyledErrorHeader } from './styled';
+import React, { Component } from "react";
 
-export default class ErrorBoundary extends Component {
+import { StyledErrorHeader } from "./styled";
+
+const ErrorBoundary = class extends Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false };
   }
+
   static getDerivedStateFromError() {
     return { hasError: true };
   }
@@ -18,4 +20,6 @@ export default class ErrorBoundary extends Component {
     }
     return this.props.children;
   }
-}
+};
+
+export default ErrorBoundary;

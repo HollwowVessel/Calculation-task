@@ -1,14 +1,14 @@
-describe('checkArithmetical', () => {
-  it('basicTestWithDivision', () => {
-    cy.visit('http://localhost:3000');
+describe("checkArithmetical", () => {
+  it("basicTestWithDivision", () => {
+    cy.visit("http://localhost:3000");
     cy.get('input[value="3"]').click();
     cy.get('input[value="/"]').click();
     cy.get('input[value="2"]').click();
     cy.get('input[value="="]').click();
-    cy.get('div[id="expression"]').should('have.text', '1.5');
+    cy.get('div[id="expression"]').should("have.text", "1.5");
   }),
-    it('testDivisionWithDecimals', () => {
-      cy.visit('http://localhost:3000');
+    it("testDivisionWithDecimals", () => {
+      cy.visit("http://localhost:3000");
       cy.get('input[value="0"]').click();
       cy.get('input[value="."]').click();
       cy.get('input[value="2"]').click();
@@ -16,18 +16,18 @@ describe('checkArithmetical', () => {
       cy.get('input[value="/"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '0.12');
+      cy.get('div[id="expression"]').should("have.text", "0.12");
     }),
-    it('basicMultiplicationTest', () => {
-      cy.visit('http://localhost:3000');
+    it("basicMultiplicationTest", () => {
+      cy.visit("http://localhost:3000");
       cy.get('input[value="3"]').click();
       cy.get('input[value="*"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '6');
+      cy.get('div[id="expression"]').should("have.text", "6");
     }),
-    it('testMultiplicationWithDecimals', () => {
-      cy.visit('http://localhost:3000');
+    it("testMultiplicationWithDecimals", () => {
+      cy.visit("http://localhost:3000");
       cy.get('input[value="0"]').click();
       cy.get('input[value="."]').click();
       cy.get('input[value="2"]').click();
@@ -35,18 +35,18 @@ describe('checkArithmetical', () => {
       cy.get('input[value="*"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '0.48');
+      cy.get('div[id="expression"]').should("have.text", "0.48");
     }),
-    it('basicTestAddition', () => {
-      cy.visit('http://localhost:3000');
+    it("basicTestAddition", () => {
+      cy.visit("http://localhost:3000");
       cy.get('input[value="3"]').click();
       cy.get('input[value="+"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '5');
+      cy.get('div[id="expression"]').should("have.text", "5");
     }),
-    it('testAdditionWithDecimals', () => {
-      cy.visit('http://localhost:3000');
+    it("testAdditionWithDecimals", () => {
+      cy.visit("http://localhost:3000");
       cy.get('input[value="0"]').click();
       cy.get('input[value="."]').click();
       cy.get('input[value="2"]').click();
@@ -54,18 +54,18 @@ describe('checkArithmetical', () => {
       cy.get('input[value="+"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '2.24');
+      cy.get('div[id="expression"]').should("have.text", "2.24");
     }),
-    it('basicSubTest', () => {
-      cy.visit('http://localhost:3000');
+    it("basicSubTest", () => {
+      cy.visit("http://localhost:3000");
       cy.get('input[value="3"]').click();
       cy.get('input[value="-"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '1');
+      cy.get('div[id="expression"]').should("have.text", "1");
     }),
-    it('testSubWithDecimals', () => {
-      cy.visit('http://localhost:3000');
+    it("testSubWithDecimals", () => {
+      cy.visit("http://localhost:3000");
       cy.get('input[value="0"]').click();
       cy.get('input[value="."]').click();
       cy.get('input[value="2"]').click();
@@ -73,10 +73,10 @@ describe('checkArithmetical', () => {
       cy.get('input[value="-"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '-1.76');
+      cy.get('div[id="expression"]').should("have.text", "-1.76");
     }),
-    it('testBasicExpression', () => {
-      cy.visit('http://localhost:3000');
+    it("testBasicExpression", () => {
+      cy.visit("http://localhost:3000");
       cy.get('input[value="("]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="+"]').click();
@@ -85,10 +85,10 @@ describe('checkArithmetical', () => {
       cy.get('input[value="*"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '8');
+      cy.get('div[id="expression"]').should("have.text", "8");
     }),
-    it('testTwoExpressions', () => {
-      cy.visit('http://localhost:3000');
+    it("testTwoExpressions", () => {
+      cy.visit("http://localhost:3000");
       cy.get('input[value="("]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="+"]').click();
@@ -101,10 +101,10 @@ describe('checkArithmetical', () => {
       cy.get('input[value="2"]').click();
       cy.get('input[value=")"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '16');
+      cy.get('div[id="expression"]').should("have.text", "16");
     }),
-    it('testWithSecondValueAsExpression', () => {
-      cy.visit('http://localhost:3000');
+    it("testWithSecondValueAsExpression", () => {
+      cy.visit("http://localhost:3000");
       cy.get('input[value="2"]').click();
       cy.get('input[value="*"]').click();
       cy.get('input[value="("]').click();
@@ -113,18 +113,28 @@ describe('checkArithmetical', () => {
       cy.get('input[value="2"]').click();
       cy.get('input[value=")"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '8');
+      cy.get('div[id="expression"]').should("have.text", "8");
     }),
-    it('basicTestWithDivision', () => {
-      cy.visit('http://localhost:3000/Class');
+    it("testWithoutEqualSign", () => {
+      cy.visit("http://localhost:3000");
+      cy.get('input[value="2"]').click();
+      cy.get('input[value="+"]').click();
+      cy.get('input[value="2"]').click();
+      cy.get('input[value="*"]').click();
+      cy.get('input[value="2"]').click();
+      cy.get('input[value="="]').click();
+      cy.get('div[id="expression"]').should("have.text", "8");
+    }),
+    it("basicTestWithDivision", () => {
+      cy.visit("http://localhost:3000/Class");
       cy.get('input[value="3"]').click();
       cy.get('input[value="/"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '1.5');
+      cy.get('div[id="expression"]').should("have.text", "1.5");
     }),
-    it('testDivisionWithDecimals', () => {
-      cy.visit('http://localhost:3000/Class');
+    it("testDivisionWithDecimals", () => {
+      cy.visit("http://localhost:3000/Class");
       cy.get('input[value="0"]').click();
       cy.get('input[value="."]').click();
       cy.get('input[value="2"]').click();
@@ -132,18 +142,18 @@ describe('checkArithmetical', () => {
       cy.get('input[value="/"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '0.12');
+      cy.get('div[id="expression"]').should("have.text", "0.12");
     }),
-    it('basicMultiplicationTest', () => {
-      cy.visit('http://localhost:3000/Class');
+    it("basicMultiplicationTest", () => {
+      cy.visit("http://localhost:3000/Class");
       cy.get('input[value="3"]').click();
       cy.get('input[value="*"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '6');
+      cy.get('div[id="expression"]').should("have.text", "6");
     }),
-    it('testMultiplicationWithDecimals', () => {
-      cy.visit('http://localhost:3000/Class');
+    it("testMultiplicationWithDecimals", () => {
+      cy.visit("http://localhost:3000/Class");
       cy.get('input[value="0"]').click();
       cy.get('input[value="."]').click();
       cy.get('input[value="2"]').click();
@@ -151,18 +161,18 @@ describe('checkArithmetical', () => {
       cy.get('input[value="*"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '0.48');
+      cy.get('div[id="expression"]').should("have.text", "0.48");
     }),
-    it('basicTestAddition', () => {
-      cy.visit('http://localhost:3000/Class');
+    it("basicTestAddition", () => {
+      cy.visit("http://localhost:3000/Class");
       cy.get('input[value="3"]').click();
       cy.get('input[value="+"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '5');
+      cy.get('div[id="expression"]').should("have.text", "5");
     }),
-    it('testAdditionWithDecimals', () => {
-      cy.visit('http://localhost:3000/Class');
+    it("testAdditionWithDecimals", () => {
+      cy.visit("http://localhost:3000/Class");
       cy.get('input[value="0"]').click();
       cy.get('input[value="."]').click();
       cy.get('input[value="2"]').click();
@@ -170,18 +180,18 @@ describe('checkArithmetical', () => {
       cy.get('input[value="+"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '2.24');
+      cy.get('div[id="expression"]').should("have.text", "2.24");
     }),
-    it('basicSubTest', () => {
-      cy.visit('http://localhost:3000/Class');
+    it("basicSubTest", () => {
+      cy.visit("http://localhost:3000/Class");
       cy.get('input[value="3"]').click();
       cy.get('input[value="-"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '1');
+      cy.get('div[id="expression"]').should("have.text", "1");
     }),
-    it('testSubWithDecimals', () => {
-      cy.visit('http://localhost:3000/Class');
+    it("testSubWithDecimals", () => {
+      cy.visit("http://localhost:3000/Class");
       cy.get('input[value="0"]').click();
       cy.get('input[value="."]').click();
       cy.get('input[value="2"]').click();
@@ -189,10 +199,10 @@ describe('checkArithmetical', () => {
       cy.get('input[value="-"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '-1.76');
+      cy.get('div[id="expression"]').should("have.text", "-1.76");
     }),
-    it('testBasicExpression', () => {
-      cy.visit('http://localhost:3000/Class');
+    it("testBasicExpression", () => {
+      cy.visit("http://localhost:3000/Class");
       cy.get('input[value="("]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="+"]').click();
@@ -201,10 +211,10 @@ describe('checkArithmetical', () => {
       cy.get('input[value="*"]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '8');
+      cy.get('div[id="expression"]').should("have.text", "8");
     }),
-    it('testTwoExpressions', () => {
-      cy.visit('http://localhost:3000/Class');
+    it("testTwoExpressions", () => {
+      cy.visit("http://localhost:3000/Class");
       cy.get('input[value="("]').click();
       cy.get('input[value="2"]').click();
       cy.get('input[value="+"]').click();
@@ -217,10 +227,10 @@ describe('checkArithmetical', () => {
       cy.get('input[value="2"]').click();
       cy.get('input[value=")"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '16');
+      cy.get('div[id="expression"]').should("have.text", "16");
     }),
-    it('testWithSecondValueAsExpression', () => {
-      cy.visit('http://localhost:3000/Class');
+    it("testWithSecondValueAsExpression", () => {
+      cy.visit("http://localhost:3000/Class");
       cy.get('input[value="2"]').click();
       cy.get('input[value="*"]').click();
       cy.get('input[value="("]').click();
@@ -229,6 +239,16 @@ describe('checkArithmetical', () => {
       cy.get('input[value="2"]').click();
       cy.get('input[value=")"]').click();
       cy.get('input[value="="]').click();
-      cy.get('div[id="expression"]').should('have.text', '8');
+      cy.get('div[id="expression"]').should("have.text", "8");
+    }),
+    it("testWithoutEqualSign", () => {
+      cy.visit("http://localhost:3000/Class");
+      cy.get('input[value="2"]').click();
+      cy.get('input[value="+"]').click();
+      cy.get('input[value="2"]').click();
+      cy.get('input[value="*"]').click();
+      cy.get('input[value="2"]').click();
+      cy.get('input[value="="]').click();
+      cy.get('div[id="expression"]').should("have.text", "8");
     });
 });
