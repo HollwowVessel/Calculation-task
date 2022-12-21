@@ -1,14 +1,14 @@
-import { numbers, op } from "constants/calculator";
+import { numbers, op, signPriority } from "constants/calculator";
 
-import { calc, calcForExp } from "./commandPattern";
+import { calc, calcForExp } from "../commandPattern";
 import {
   addCommand,
   divCommand,
   modCommand,
   mulCommand,
   subCommand,
-} from "./commands";
-import { setHistory } from "./localStorage";
+} from "../commands";
+import { setHistory } from "../localStorage";
 
 export const addNumber = (number, val) => {
   if (!(numbers.indexOf(+val) !== -1)) return null;
@@ -301,12 +301,4 @@ const solveProblem = (stack, sing) => {
   const b = stack.pop() ?? 0;
 
   stack.push(doEasyMath(b, a, sing));
-};
-
-const signPriority = {
-  "+": 1,
-  "-": 1,
-  "*": 2,
-  "/": 2,
-  "%": 3,
 };

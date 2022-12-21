@@ -8,7 +8,7 @@ import {
   startExpression,
   swapDisplayValues,
   wrongOperations,
-} from "./calculatorHelpers";
+} from "./calculatorHelpers/calculatorHelpers";
 
 export const logicOfCalculator = (val, displayState, setHistoryItems) => {
   const { number, expression, operation } = displayState;

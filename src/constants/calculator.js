@@ -6,3 +6,11 @@ export const DIV_MUL_NEUTRAL = 1;
 export const SUB_ADD_NEUTRAL = 0;
 
 export const PRECISION = 1e3;
+
+export const signPriority = {
+  "+": 1,
+  "-": 1,
+  "*": 2,
+  "/": 2,
+  "%": 3,
+};

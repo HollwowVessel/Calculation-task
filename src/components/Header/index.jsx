@@ -13,7 +13,7 @@ export function Header() {
       <NavBar>
         {routes.map(({ id, path, name }) => (
           <li key={id}>
-            <NavLinkItem $isActive={pathname === `/${path}`} to={path}>
+            <NavLinkItem $isActive={pathname === `/${path}`} to={`/${path}`}>
               {name}
             </NavLinkItem>
           </li>

@@ -1,8 +1,12 @@
+import { Header } from "components/Header";
 import { SettingsLayout } from "components/SettingsLayout";
 import React from "react";
 
-export function Settings({ setTheme, clearAll, theme }) {
+export function Settings() {
   return (
-    <SettingsLayout setTheme={setTheme} clearAll={clearAll} theme={theme} />
+    <>
+      <Header />
+      <SettingsLayout />
+    </>
   );
 }
