@@ -1,29 +1,19 @@
-import React from 'react';
-import { string } from 'prop-types';
-import {
-  StyledDisplay,
-  StyledExpressionBuilder,
-  StyledNumber,
-} from '../styled';
+import { string } from "prop-types";
+import React from "react";
+
+import { DisplayWrapper, ExpressionBuilder, Number } from "../styled";
 
 export class Display extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-  }
-
   render() {
     const { expression, operation, number } = this.props.displayState;
-    console.log(expression, operation, number);
+
     return (
-      <StyledDisplay>
-        <StyledNumber id='number'>
+      <DisplayWrapper>
+        <Number id="number">
           {expression} {operation}
-        </StyledNumber>
-        <StyledExpressionBuilder id='expression'>
-          {number}
-        </StyledExpressionBuilder>
-      </StyledDisplay>
+        </Number>
+        <ExpressionBuilder id="expression">{number}</ExpressionBuilder>
+      </DisplayWrapper>
     );
   }
 }

@@ -1,14 +1,15 @@
-import { func } from 'prop-types';
-import React from 'react';
-import { StyledShowHistoryButton } from '../styled';
+import { func } from "prop-types";
+import React from "react";
 
-export const ControlPanel = ({ handleHistory }) => {
+import { ShowHistoryButton } from "../styled";
+
+export function ControlPanel({ handleHistory }) {
   return (
-    <StyledShowHistoryButton onClick={handleHistory} id='show-history'>
+    <ShowHistoryButton onClick={handleHistory} id="show-history">
       Show
-    </StyledShowHistoryButton>
+    </ShowHistoryButton>
   );
-};
+}
 
 ControlPanel.propTypes = {
   handleHistory: func.isRequired,

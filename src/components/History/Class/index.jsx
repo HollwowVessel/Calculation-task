@@ -1,32 +1,26 @@
-import React from 'react';
-import { ControlPanel } from 'components/ControlPanel/Class';
-import { StyledHistoryContainer, StyledHistoryItems } from '../styled';
-import { array } from 'prop-types';
+import { array } from "prop-types";
+import React from "react";
+
+import {
+  HistoryContainer,
+  HistoryHeader,
+  HistoryItem,
+  HistoryItems,
+} from "../styled";
 
 export class History extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { showHistory: false };
-  }
-
-  handleHistory = () => {
-    this.setState((prev) => ({ ...prev, showHistory: !prev.showHistory }));
-  };
-
   render() {
     const { historyItems } = this.props;
-    const historyInfo = historyItems.map((el, id) => (
-      <li key={id}>{el.join(' ')}</li>
-    ));
 
     return (
-      <StyledHistoryContainer>
-        <h2>History</h2>
-        <ControlPanel handleHistory={this.handleHistory} />
-        <StyledHistoryItems id='history'>
-          {this.state.showHistory && historyInfo}
-        </StyledHistoryItems>
-      </StyledHistoryContainer>
+      <HistoryContainer id="historyContainer">
+        <HistoryHeader>History</HistoryHeader>
+        <HistoryItems id="history">
+          {historyItems.map((el, id) => (
+            <HistoryItem key={id}>{el.join(" ")}</HistoryItem>
+          ))}
+        </HistoryItems>
+      </HistoryContainer>
     );
   }
 }

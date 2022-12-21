@@ -1,5 +1,5 @@
-describe('checkArithmetical', () => {
-  it('basicTestWithDivision', () => {
+describe('checkTheme', () => {
+  it('testAllThemes', () => {
     cy.visit('http://localhost:3000/Settings');
     cy.get('select').select('light');
     cy.get('select').select('dark');

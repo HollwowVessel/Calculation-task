@@ -1,22 +1,18 @@
-import React from 'react';
-import { string } from 'prop-types';
-import {
-  StyledDisplay,
-  StyledExpressionBuilder,
-  StyledNumber,
-} from '../styled';
+import React from "react";
 
-export const Display = ({ displayState }) => {
+import { DisplayWrapper, ExpressionBuilder, Number } from "../styled";
+
+export function Display({ displayState }) {
   return (
-    <StyledDisplay>
-      <StyledNumber id='number'>
+    <DisplayWrapper>
+      <Number id="number">
         {displayState.expression} {displayState.operation}
-      </StyledNumber>
-      <StyledExpressionBuilder id='expression'>
+      </Number>
+      <ExpressionBuilder id="expression">
         {displayState.number}
-      </StyledExpressionBuilder>
-    </StyledDisplay>
+      </ExpressionBuilder>
+    </DisplayWrapper>
   );
-};
+}
 
 Display.propTypes = {};
