@@ -1,11 +1,9 @@
 import { PRECISION } from "constants/calculator";
 
-import { getHistory, setHistory } from "./localStorage";
-
 class Calculator {
   constructor() {
     this.value = 0;
-    this.history = getHistory() || [];
+    this.history = [];
   }
 
   executeCommand(command) {
@@ -13,7 +11,6 @@ class Calculator {
     this.value =
       Math.round(command.execute(this.value) * PRECISION) / PRECISION;
     this.history.push([...historyElement, "=", this.value]);
-    setHistory(this.history);
   }
 }
 

@@ -7,10 +7,8 @@ import { GlobalStyles } from "./GlobalStyles";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <ErrorBoundary>
-      <GlobalStyles />
-      <App />
-    </ErrorBoundary>
-  </React.StrictMode>
+  <ErrorBoundary>
+    <GlobalStyles />
+    <App />
+  </ErrorBoundary>
 );

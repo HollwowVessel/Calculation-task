@@ -14,11 +14,10 @@ import {
 
 export function SettingsLayout() {
   const { themeType, setThemeType } = useContext(Context);
-  console.log(themeType);
+
   const changeTheme = () => (e) => {
     setThemeType(theme(e.target.value));
     setTheme(theme(e.target.value));
-    console.log(e.target.value, theme(e.target.value));
   };
 
   return (
@@ -37,7 +36,7 @@ export function SettingsLayout() {
           ))}
         </Select>
       </SelectWrap>
-      <ClearHistory onClick={clearHistory()} id="history-clear">
+      <ClearHistory onClick={clearHistory} id="history-clear">
         Clear All History
       </ClearHistory>
     </SettingsLayoutContainer>

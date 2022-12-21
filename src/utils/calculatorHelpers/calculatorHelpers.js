@@ -8,7 +8,7 @@ import {
   mulCommand,
   subCommand,
 } from "../commands";
-import { setHistory } from "../localStorage";
+import { getHistory, setHistory } from "../localStorage";
 
 export const addNumber = (number, val) => {
   if (!(numbers.indexOf(+val) !== -1)) return null;
@@ -29,10 +29,18 @@ export const getResultWithoutEqualSign = ({
     const command = getCommand(operation);
     command.value = number;
     calc.executeCommand(command);
+    calc.history.push([
+      String(expression),
+      operation,
+      String(number),
+      "=",
+      String(calc.value),
+    ]);
     if (setHistoryItems) {
-      setHistoryItems((prev) => {
-        const newHistory = [calc.history.at(-1), ...prev];
-        setHistory(newHistory);
+      setHistoryItems(() => {
+        const history = getHistory() ? getHistory() : [[]];
+        setHistory([calc.history.at(-1), ...history]);
+        const newHistory = getHistory();
         return newHistory;
       });
     }
@@ -157,13 +165,6 @@ export const getResult = ({
 
       calc.value = res;
       calc.executeCommand(command);
-      calc.history[calc.history.length - 1] = [
-        expression,
-        operation,
-        number,
-        "=",
-        calc.value,
-      ];
     } else {
       const command = getCommand(operation, expression);
       command.value = expression;
@@ -178,11 +179,22 @@ export const getResult = ({
         },
       };
     }
-    if (setHistoryItems) {
-      const newHistory = calc.history.at(-1);
-      setHistoryItems((prev) => [newHistory, ...prev]);
-    }
 
+    calc.history.push([
+      String(expression),
+      operation,
+      String(number),
+      "=",
+      String(calc.value),
+    ]);
+    if (setHistoryItems) {
+      const history = getHistory() ? getHistory() : [[]];
+      setHistory([calc.history.at(-1), ...history]);
+      setHistoryItems(() => {
+        const newHistory = getHistory();
+        return newHistory;
+      });
+    }
     return {
       type: "getResult",
       payload: {
