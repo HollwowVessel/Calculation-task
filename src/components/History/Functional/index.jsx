@@ -14,7 +14,7 @@ export function History({ historyItems }) {
       <HistoryHeader>History</HistoryHeader>
       <HistoryItems id="history">
         {historyItems.map((el, id) => (
-          <HistoryItem key={id}>{el.join(" ")}</HistoryItem>
+          <HistoryItem key={id}>{el?.join(" ")}</HistoryItem>
         ))}
       </HistoryItems>
     </HistoryContainer>

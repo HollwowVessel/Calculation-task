@@ -15,7 +15,7 @@ export class Calculator extends React.Component {
 
     this.state = {
       showHistory: false,
-      historyItems: getHistory()?.reverse() || [],
+      historyItems: getHistory() || [],
       number: 0,
       expression: 0,
       operation: "",
@@ -29,7 +29,7 @@ export class Calculator extends React.Component {
   updateHistory = () => {
     this.setState((prev) => ({
       ...prev,
-      historyItems: getHistory().reverse(),
+      historyItems: getHistory(),
     }));
   };
 
@@ -71,7 +71,9 @@ export class Calculator extends React.Component {
       }
 
       case "getResult": {
-        setHistory(calc.history);
+        const history = getHistory() ? getHistory() : [[]];
+        setHistory([calc.history.at(-1), ...history]);
+
         this.updateHistory();
         return this.setState({
           expression: 0,
@@ -125,7 +127,8 @@ export class Calculator extends React.Component {
         }));
       }
       case "getResultWithoutEqualSign": {
-        setHistory(calc.history);
+        const history = getHistory() ? getHistory() : [[]];
+        setHistory([calc.history.at(-1), ...history]);
         this.updateHistory();
         return this.setState((prev) => ({
           ...prev,

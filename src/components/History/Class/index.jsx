@@ -17,7 +17,7 @@ export class History extends React.Component {
         <HistoryHeader>History</HistoryHeader>
         <HistoryItems id="history">
           {historyItems.map((el, id) => (
-            <HistoryItem key={id}>{el.join(" ")}</HistoryItem>
+            <HistoryItem key={id}>{el?.join(" ")}</HistoryItem>
           ))}
         </HistoryItems>
       </HistoryContainer>

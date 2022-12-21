@@ -10,10 +10,7 @@ import { initialState, reducer } from "utils/reducer";
 import { CalculatorContainer, LayoutContainer } from "../styled";
 
 export function Calculator() {
-  const [historyItems, setHistoryItems] = useState(
-    getHistory()?.reverse() || []
-  );
-
+  const [historyItems, setHistoryItems] = useState(getHistory() || []);
   const [displayState, dispatch] = useReducer(reducer, initialState);
 
   const handleValue = (e) => {

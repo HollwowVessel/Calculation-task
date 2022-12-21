@@ -1,3 +1,5 @@
+import { calc } from "./commandPattern";
+
 export const getTheme = () => {
   return JSON.parse(localStorage.getItem("theme"));
 };
@@ -25,4 +27,5 @@ export const getHistory = () => {
 
 export const clearHistory = () => {
   localStorage.removeItem("history");
+  calc.history = [];
 };
