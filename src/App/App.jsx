@@ -9,14 +9,13 @@ import { routes } from "../constants/routes";
 import { theme } from "../theme";
 
 function App() {
-  const [themeType, setThemeType] = useState(getTheme() || theme.light);
-
+  const [themeType, setThemeType] = useState(getTheme() || theme("light"));
   const contextObj = useMemo(
     () => ({
       themeType,
       setThemeType,
     }),
-    [themeType, setThemeType]
+    [themeType]
   );
 
   return (

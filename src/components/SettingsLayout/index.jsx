@@ -14,10 +14,11 @@ import {
 
 export function SettingsLayout() {
   const { themeType, setThemeType } = useContext(Context);
-
+  console.log(themeType);
   const changeTheme = () => (e) => {
-    setThemeType(theme[e.target.value]);
-    setTheme(theme[e.target.value]);
+    setThemeType(theme(e.target.value));
+    setTheme(theme(e.target.value));
+    console.log(e.target.value, theme(e.target.value));
   };
 
   return (

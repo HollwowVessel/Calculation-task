@@ -88,7 +88,7 @@ export const swapDisplayValues = (val, operation, number) => {
   if (
     op.indexOf(val) !== -1 &&
     !operation &&
-    (number[0] !== "(" || number.at(-1) === ")")
+    (number[0] !== "(" || String(number).at(-1) === ")")
   ) {
     return { type: "swapDisplayValues", payload: val };
   }
@@ -109,14 +109,17 @@ export const easyOperations = (val, number) => {
 export const startExpression = (val, number) => {
   if (val === "(" || op.indexOf(val) !== -1) {
     if (number[0] === "(" && val !== "(") {
-      if (op.indexOf(String(number).at(-1)) === -1 && number.at(-1) !== "(") {
+      if (
+        op.indexOf(String(number).at(-1)) === -1 &&
+        String(number).at(-1) !== "("
+      ) {
         return { type: "fillExpression", payload: val };
       }
     } else if (
       (number[0] !== "(" && val === "(") ||
-      op.indexOf(number.at(-1)) !== -1
+      op.indexOf(String(number).at(-1)) !== -1
     ) {
-      if (number.length === 1 && number.at(-1) !== 0) {
+      if (number.length === 1 && String(number).at(-1) !== 0) {
         return { type: "" };
       }
 
@@ -194,13 +197,23 @@ export const endExpression = (val, number) => {
   if (
     val === ")" &&
     count(number, "(") !== count(number, ")") &&
-    op.indexOf(number.at(-1)) === -1 &&
-    number.at(-1) !== "(" &&
-    numbers.indexOf(number.at(-1)) === -1
+    op.indexOf(String(number).at(-1)) === -1 &&
+    String(number).at(-1) !== "(" &&
+    numbers.indexOf(String(number).at(-1)) === -1
   ) {
     return { type: "endExpression" };
   }
   return null;
+};
+
+export const count = (string, ch) => {
+  let q = 0;
+  for (const i of String(string)) {
+    if (i === ch) {
+      q++;
+    }
+  }
+  return q;
 };
 
 const getCommand = (val) => {
@@ -222,16 +235,6 @@ const getCommand = (val) => {
     }
   }
   return null;
-};
-
-export const count = (string, ch) => {
-  let q = 0;
-  for (const i of String(string)) {
-    if (i === ch) {
-      q++;
-    }
-  }
-  return q;
 };
 
 const calculate = (string) => {
@@ -282,7 +285,7 @@ const calculate = (string) => {
 };
 
 const calculateExpression = (val, number) => {
-  if (number.at(-1) === ")" && val === "=") {
+  if (String(number).at(-1) === ")" && val === "=") {
     return calculate(number);
   }
   return null;

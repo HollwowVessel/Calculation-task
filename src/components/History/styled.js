@@ -2,28 +2,28 @@ import styled from "styled-components";
 
 export const HistoryContainer = styled.div`
   border-left: 2px solid #000;
-  width: 30vw;
-  padding: 0 20px 0 20px;
+  width: ${({ theme }) => theme.width[2]}vw;
+  padding: 0 ${({ theme }) => theme.spaces[3]}px;
 `;
 
 export const HistoryHeader = styled.h2`
   text-align: center;
-  margin: 0px 0 40px 0;
+  margin-bottom: ${({ theme }) => theme.spaces[5]}px;
   color: ${({ theme }) => theme.color};
 `;
 
 export const HistoryItems = styled.ul`
   list-style-type: none;
-  font-size: 20px;
+  font-size: ${({ theme }) => theme.fontSize[0]}px;
   color: ${({ theme }) => theme.color};
-  max-height: 80%;
+  height: ${({ theme }) => theme.height[5]}%;
   overflow: auto;
   &::-webkit-scrollbar-thumb {
     background: #000;
     border-radius: 30px;
   }
   &::-webkit-scrollbar {
-    width: 10px;
+    width: ${({ theme }) => theme.width[0]}px;
   }
   &::-webkit-scrollbar-track {
     background: ${({ theme }) => theme.background};
@@ -31,5 +31,5 @@ export const HistoryItems = styled.ul`
 `;
 
 export const HistoryItem = styled.li`
-  margin: 5px 0px 5px 0;
+  margin: ${({ theme }) => theme.spaces[1]} ${({ theme }) => theme.spaces[0]};
 `;
