@@ -1,4 +1,6 @@
-import {
+import { reducerNames } from "constants/reducer";
+
+const {
   addDot,
   addNumber,
   changeOperationWithoutParenthesis,
@@ -12,7 +14,7 @@ import {
   getResultWithoutEqualSign,
   startExpression,
   swapDisplayValues,
-} from "constants/reducer";
+} = { ...reducerNames };
 
 export const reducer = (state, action) => {
   const { type, payload } = action;

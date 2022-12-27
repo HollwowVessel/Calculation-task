@@ -1,12 +1,11 @@
+import { Context } from "constants/context";
+import { routes } from "constants/routes";
 import { HomeFunction } from "pages/Home/HomeFunction";
 import React, { useMemo, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { theme } from "src/theme";
 import { ThemeProvider } from "styled-components";
 import { getTheme } from "utils/localStorage";
-
-import { Context } from "../constants/context";
-import { routes } from "../constants/routes";
-import { theme } from "../theme";
 
 function App() {
   const [themeType, setThemeType] = useState(getTheme() || theme("light"));
