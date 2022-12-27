@@ -1,8 +1,7 @@
+import { HomeClass } from "pages/Home/HomeClass";
+import { HomeFunction } from "pages/Home/HomeFunction";
+import { Settings } from "pages/Settings";
 import React from "react";
-
-import { HomeClass } from "../pages/Home/HomeClass";
-import { HomeFunction } from "../pages/Home/HomeFunction";
-import { Settings } from "../pages/Settings";
 
 export const routes = [
   {
@@ -16,9 +15,6 @@ export const routes = [
     id: 2,
     path: "Settings",
     name: "Settings",
-    element: (
-      // eslint-disable-next-line no-undef
-      <Settings />
-    ),
+    element: <Settings />,
   },
 ];

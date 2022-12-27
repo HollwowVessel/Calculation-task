@@ -1,14 +1,13 @@
 import { numbers, op, signPriority } from "constants/calculator";
-
-import { calc, calcForExp } from "../commandPattern";
+import { calc, calcForExp } from "utils/commandPattern";
 import {
   addCommand,
   divCommand,
   modCommand,
   mulCommand,
   subCommand,
-} from "../commands";
-import { getHistory, setHistory } from "../localStorage";
+} from "utils/commands";
+import { getHistory, setHistory } from "utils/localStorage";
 
 export const addNumber = (number, val) => {
   if (!(numbers.indexOf(+val) !== -1)) return null;

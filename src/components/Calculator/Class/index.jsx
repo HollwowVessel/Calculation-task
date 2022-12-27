@@ -2,12 +2,29 @@ import { ControlPanel } from "components/ControlPanel/Class";
 import { Display } from "components/Display/Class";
 import { History } from "components/History/Class";
 import { Keypad } from "components/Keypad/Functional";
+import { reducerNames } from "constants/reducer";
 import React from "react";
 import { calc } from "utils/commandPattern";
 import { getHistory, setHistory } from "utils/localStorage";
 import { logicOfCalculator } from "utils/logicOfCalculator";
 
 import { CalculatorContainer, LayoutContainer } from "../styled";
+
+const {
+  addDot,
+  addNumber,
+  changeOperationWithoutParenthesis,
+  changeSign,
+  clearAll,
+  clearExpression,
+  endExpression,
+  fillExpression,
+  getOperation,
+  getResult,
+  getResultWithoutEqualSign,
+  startExpression,
+  swapDisplayValues,
+} = { ...reducerNames };
 
 export class Calculator extends React.Component {
   constructor() {
@@ -37,9 +54,9 @@ export class Calculator extends React.Component {
     const val = e.target.value;
 
     const action = logicOfCalculator(val, this.state);
-
-    switch (action.type) {
-      case "clearAll": {
+    const { type, payload } = action;
+    switch (type) {
+      case clearAll: {
         return this.setState((prev) => ({
           ...prev,
           number: 0,
@@ -47,76 +64,76 @@ export class Calculator extends React.Component {
           operation: "",
         }));
       }
-      case "addNumber": {
+      case addNumber: {
         return this.setState((prev) => ({
           ...prev,
-          number: prev.number ? prev.number + action.payload : action.payload,
+          number: prev.number ? prev.number + payload : payload,
         }));
       }
-      case "changeOperationWithoutParenthesis": {
+      case changeOperationWithoutParenthesis: {
         return this.setState((prev) => ({
           ...prev,
-          operation: action.payload,
+          operation: payload,
         }));
       }
-      case "getOperation": {
-        return (prev) => ({ ...prev, operation: action.payload });
+      case getOperation: {
+        return (prev) => ({ ...prev, operation: payload });
       }
-      case "swapDisplayValues": {
+      case swapDisplayValues: {
         return this.setState((prev) => ({
-          operation: action.payload,
+          operation: payload,
           number: 0,
           expression: prev.number,
         }));
       }
 
-      case "getResult": {
+      case getResult: {
         const history = getHistory() ? getHistory() : [[]];
         setHistory([calc.history.at(-1), ...history]);
 
         this.updateHistory();
         return this.setState({
           expression: 0,
-          number: action.payload.number,
+          number: payload.number,
           operation: "",
         });
       }
 
-      case "changeSign": {
+      case changeSign: {
         return this.setState((prev) => ({
           ...prev,
           number: -prev.number,
         }));
       }
 
-      case "addDot": {
+      case addDot: {
         return this.setState((prev) => ({
           ...prev,
           number: `${prev.number}.`,
         }));
       }
 
-      case "fillExpression": {
+      case fillExpression: {
         return this.setState((prev) => ({
           ...prev,
-          number: prev.number + action.payload,
+          number: prev.number + payload,
         }));
       }
 
-      case "endExpression": {
+      case endExpression: {
         return this.setState((prev) => ({
           ...prev,
           number: `${prev.number})`,
         }));
       }
 
-      case "startExpression": {
+      case startExpression: {
         return this.setState((prev) => ({
           ...prev,
           number: prev.number ? `${prev.number}(` : "(",
         }));
       }
-      case "clearExpression": {
+      case clearExpression: {
         const num = String(this.state.number).substring(
           0,
           String(this.state.number).length - 1
@@ -126,14 +143,15 @@ export class Calculator extends React.Component {
           number: +num ? num : 0,
         }));
       }
-      case "getResultWithoutEqualSign": {
+      case getResultWithoutEqualSign: {
         const history = getHistory() ? getHistory() : [[]];
+        const { operation, expression } = payload;
         setHistory([calc.history.at(-1), ...history]);
         this.updateHistory();
         return this.setState((prev) => ({
           ...prev,
-          operation: action.payload.operation,
-          expression: action.payload.expression,
+          operation,
+          expression,
           number: 0,
         }));
       }

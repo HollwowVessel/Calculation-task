@@ -1,31 +1,37 @@
+import { HISTORY, THEME } from "constants/localStorage";
+
 import { calc } from "./commandPattern";
 
 export const getTheme = () => {
-  return JSON.parse(localStorage.getItem("theme"));
+  const theme = JSON.parse(localStorage.getItem(THEME));
+  return theme;
 };
 
 export const setTheme = (theme) => {
-  localStorage.setItem("theme", JSON.stringify(theme));
+  theme = JSON.stringify(theme);
+  localStorage.setItem(THEME, theme);
 };
 
 export const getThemeName = () => {
-  return JSON.parse(localStorage.getItem("theme"))?.name;
+  const theme = JSON.parse(localStorage.getItem(THEME));
+  return theme.name;
 };
 
 export const clearTheme = () => {
-  localStorage.removeItem("theme");
+  localStorage.removeItem(THEME);
 };
 
 export const setHistory = (history) => {
-  localStorage.setItem("history", JSON.stringify(history));
+  history = JSON.stringify(history);
+  localStorage.setItem(HISTORY, history);
 };
 
 export const getHistory = () => {
-  const history = JSON.parse(localStorage.getItem("history"));
+  const history = JSON.parse(localStorage.getItem(HISTORY));
   return history;
 };
 
 export const clearHistory = () => {
-  localStorage.removeItem("history");
+  localStorage.removeItem(HISTORY);
   calc.history = [];
 };

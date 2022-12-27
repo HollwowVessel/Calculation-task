@@ -23,6 +23,10 @@ export const logicOfCalculator = (val, displayState, setHistoryItems) => {
   const getResultRes = getResult(resObj);
   const endExpressionRes = endExpression(val, number);
 
+  if (number === "Error" && val !== "C") {
+    return { type: "" };
+  }
+
   if (addNumberRes) {
     return addNumberRes;
   }
